@@ -1,0 +1,568 @@
+// GTag Mod Checker - standard modliste.
+// Kopieres til BepInEx/config/GTagModChecker_mods.json første gang spillet starter. Rediger DEN fila (lastes på nytt automatisk).
+// Format: pattern, matchType (exact|contains|prefix|suffix|wildcard), target (key|value|any), label,
+//         category (cheat|mod|unsure), confidence (0..1), source.
+// KILDER:
+//  - "example_*" er EKSEMPLER/plassholdere, ikke ekte nøkler.
+//  - Øvrige mønstre er hentet fra den offentlige seed-lista i GorillaCaster (MIT-lisens):
+//    https://github.com/cs14gaming/GorillaCaster/blob/main/src/CheatDatabase.cs
+//    De er IKKE uavhengig verifisert. Navngitte menyer og korte ord er derfor satt til "unsure" (gir SUSPICIOUS, ikke CHEATING).
+//  - Allowlist er også fra GorillaCaster (nøkler som er normale i Gorilla Tag).
+{
+  "version": 1,
+  "entries": [
+    {
+      "pattern": "example_yurfit",
+      "matchType": "exact",
+      "target": "key",
+      "label": "YUR.FIT (example)",
+      "category": "mod",
+      "confidence": 0.0,
+      "source": "EKSEMPEL - plassholder, ikke en ekte nøkkel"
+    },
+    {
+      "pattern": "example_gorilla_cosmetics",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Gorilla Cosmetics (example)",
+      "category": "mod",
+      "confidence": 0.0,
+      "source": "EKSEMPEL - plassholder, ikke en ekte nøkkel"
+    },
+    {
+      "pattern": "example_steal_identity",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Steal Identity (example)",
+      "category": "cheat",
+      "confidence": 0.95,
+      "source": "EKSEMPEL - plassholder, ikke en ekte nøkkel"
+    },
+    {
+      "pattern": "example_kick_all",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Kick All (example)",
+      "category": "cheat",
+      "confidence": 0.95,
+      "source": "EKSEMPEL - plassholder, ikke en ekte nøkkel"
+    },
+    {
+      "pattern": "example_crash_lobby",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Crash Lobby (example)",
+      "category": "cheat",
+      "confidence": 0.95,
+      "source": "EKSEMPEL - plassholder, ikke en ekte nøkkel"
+    },
+    {
+      "pattern": "ismodded",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Self-announcing key 'ismodded'",
+      "category": "cheat",
+      "confidence": 0.85,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "modmenu",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Self-announcing key 'modmenu'",
+      "category": "cheat",
+      "confidence": 0.85,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "cheater",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Self-announcing key 'cheater'",
+      "category": "cheat",
+      "confidence": 0.85,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "menuactive",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Self-announcing key 'menuactive'",
+      "category": "cheat",
+      "confidence": 0.85,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "cosmetx",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Cosmetic spoofer 'cosmetx'",
+      "category": "cheat",
+      "confidence": 0.8,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "cosmeticx",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Cosmetic spoofer 'cosmeticx'",
+      "category": "cheat",
+      "confidence": 0.8,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "everycosmetic",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Cosmetic spoofer 'everycosmetic'",
+      "category": "cheat",
+      "confidence": 0.8,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "cosmeticunlock",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Cosmetic spoofer 'cosmeticunlock'",
+      "category": "cheat",
+      "confidence": 0.8,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "flymod",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'flymod'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "noclip",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'noclip'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "speedhack",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'speedhack'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "speedmod",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'speedmod'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "pullmod",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'pullmod'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "reachmod",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'reachmod'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "tagrange",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'tagrange'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "godmode",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'godmode'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "platformspoof",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'platformspoof'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "platformlock",
+      "matchType": "contains",
+      "target": "key",
+      "label": "Cheat feature 'platformlock'",
+      "category": "cheat",
+      "confidence": 0.75,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "seralyth",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'seralyth' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "monkemenu",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'monkemenu' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "monkimenu",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'monkimenu' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "iblastoff",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'iblastoff' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "mintchoco",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'mintchoco' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "goldentag",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'goldentag' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "rumblemenu",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'rumblemenu' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "voidmenu",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'voidmenu' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "grappler",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'grappler' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "stickbug",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'stickbug' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "frostbite",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'frostbite' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "obsidian",
+      "matchType": "contains",
+      "target": "any",
+      "label": "Menu name 'obsidian' (unverified)",
+      "category": "unsure",
+      "confidence": 0.5,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "saturn",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'saturn' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "astre",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'astre' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "xenon",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'xenon' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "violet",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'violet' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "aspects",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'aspects' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "juul",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'juul' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "hydra",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'hydra' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "atlas",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'atlas' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "redwood",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'redwood' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "spiderman",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'spiderman' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "phantom",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'phantom' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "eclipse",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'eclipse' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "nebula",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'nebula' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "crystal",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'crystal' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "matrix",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'matrix' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "exodus",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'exodus' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "infinity",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'infinity' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "fly",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'fly' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "psa",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'psa' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "crew",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'crew' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "crewp",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'crewp' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "puller",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'puller' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    },
+    {
+      "pattern": "playspace",
+      "matchType": "exact",
+      "target": "key",
+      "label": "Possible menu/feature 'playspace' (unverified)",
+      "category": "unsure",
+      "confidence": 0.4,
+      "source": "GorillaCaster src/CheatDatabase.cs (MIT), https://github.com/cs14gaming/GorillaCaster - ikke uavhengig verifisert"
+    }
+  ],
+  "allowlist": [
+    {
+      "pattern": "platform",
+      "matchType": "exact"
+    },
+    {
+      "pattern": "didplatform",
+      "matchType": "exact"
+    },
+    {
+      "pattern": "didtutorial",
+      "matchType": "exact"
+    },
+    {
+      "pattern": "color",
+      "matchType": "exact"
+    },
+    {
+      "pattern": "cosmetics",
+      "matchType": "exact"
+    },
+    {
+      "pattern": "usepdate",
+      "matchType": "exact"
+    },
+    {
+      "pattern": "release",
+      "matchType": "exact"
+    }
+  ],
+  "allowedRpcs": []
+}

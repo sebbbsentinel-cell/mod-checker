@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Gorilla Tag + BepInEx 5 kjører på Unity Mono: net472 -->
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>GTagModChecker</AssemblyName>
+    <RootNamespace>GTagModChecker</RootNamespace>
+    <Version>1.0.0</Version>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+
+    <!-- ===== ENDRE DENNE hvis Gorilla Tag ligger et annet sted (eller bruk: dotnet build -p:GamePath="D:\...\Gorilla Tag") ===== -->
+    <GamePath Condition="'$(GamePath)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Gorilla Tag</GamePath>
+    <GameManaged>$(GamePath)/Gorilla Tag_Data/Managed</GameManaged>
+    <BepInExCore>$(GamePath)/BepInEx/core</BepInExCore>
+    <PluginDir>$(GamePath)/BepInEx/plugins/GTagModChecker</PluginDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <!-- BepInEx 5 (installeres av deg selv; ingenting av dette pakkes med) -->
+    <Reference Include="BepInEx"><HintPath>$(BepInExCore)/BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCore)/0Harmony.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Unity (fra spillets Managed-mappe) -->
+    <Reference Include="UnityEngine"><HintPath>$(GameManaged)/UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManaged)/UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.XRModule"><HintPath>$(GameManaged)/UnityEngine.XRModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(GameManaged)/UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(GameManaged)/UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(GameManaged)/UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AudioModule"><HintPath>$(GameManaged)/UnityEngine.AudioModule.dll</HintPath><Private>false</Private></Reference>
+    <!-- Nytt Input System (brukes kun som tastatur-fallback, isolert i try/catch) -->
+    <Reference Include="Unity.InputSystem"><HintPath>$(GameManaged)/Unity.InputSystem.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Photon PUN2 (kun lesing) -->
+    <Reference Include="PhotonRealtime"><HintPath>$(GameManaged)/PhotonRealtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PhotonUnityNetworking"><HintPath>$(GameManaged)/PhotonUnityNetworking.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Photon3Unity3D"><HintPath>$(GameManaged)/Photon3Unity3D.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Assembly-CSharp brukes IKKE ved kompilering. Rigger (VRRig) leses via refleksjon,
+         så pluginen tåler Gorilla Tag-oppdateringer bedre. -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="mods.json" LogicalName="FanGame.ModChecker.mods.json" />
+  </ItemGroup>
+
+  <!-- Kopierer DLL-en til BepInEx/plugins/GTagModChecker etter hver build -->
+  <Target Name="CopyToPlugins" AfterTargets="Build" Condition="Exists('$(GamePath)/BepInEx')">
+    <MakeDir Directories="$(PluginDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginDir)" OverwriteReadOnlyFiles="true" />
+    <Message Importance="high" Text="GTagModChecker -> $(PluginDir)" />
+  </Target>
+  <Target Name="WarnNoBepInEx" AfterTargets="Build" Condition="!Exists('$(GamePath)/BepInEx')">
+    <Warning Text="Fant ikke $(GamePath)/BepInEx - installer BepInEx 5 og/eller sett GamePath. DLL-en ble ikke kopiert." />
+  </Target>
+
+</Project>
